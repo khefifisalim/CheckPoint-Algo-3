@@ -1,0 +1,49 @@
+FUNCTION Dot_product(v1, v2  : ARRAY_OF FLOAT[3];) : ARRAY_OF FLOAT[3]
+VAR
+    cp : ARRAY_OF FLOAT[3]
+BEGIN
+    
+    cp[0] := v1[1] * v2[2] - v1[2] * v2[1];
+    cp[1] := (-1) * (v1[0] * v2[2] - v1[2] * v2[0]);
+    cp[2] := v1[0] * v2[1] - v1[1] * v2[0];
+    
+    RETURN cp  ;
+END
+
+
+
+ALGORITHM Dot_Product
+VAR
+    vectors :	STRUCT
+                v : ARRAY_OF Float[3];
+            END_STRUCT
+    T : ARRAY_OF vectors[];
+    i,j : INTEGER;
+
+BEGIN
+
+    FOR i FROM  TO T.length -1 STEP 1  DO
+
+        FOR j FROM 0 TO 2 STEP 1  DO
+        Write("Enter the vector ", i "coordinate", j);
+        Read(T[i].v[j]);
+        END_FOR
+        
+    END_FOR
+
+    FOR i FROM 0 TO T.length -1 DO
+        j := 0;
+            WHILE (j < T.length)) DO
+
+                IF (i<>j) THEN
+                Write("The cross product of ", T[i] " & ", T[i+1] " = ", Dot_product(T[i]),T[i+1]));
+                j := j +1;
+                ELSE
+                j := j +1;
+                END_IF
+        
+            END_WHILE
+    
+    END_FOR
+    
+END
